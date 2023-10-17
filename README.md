@@ -24,3 +24,12 @@ steps:
 ### `message` (Required, string)
 
 The message to annotate onto the build.
+
+## Releasing
+
+Push a version tag to trigger new release via [Github Actions workflow](./.github/workflows/release.yaml).
+
+```
+git tag v0.1.0
+git push --tags
+```
