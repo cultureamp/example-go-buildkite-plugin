@@ -1,0 +1,20 @@
+name: ECR Scan Results
+description: >
+  Retrieves vulnerability scan results from ECR, creating a report as an
+  annotation on the build. Will fail the step if vulnerabilities exist (though
+  this is configurable).
+author: https://github.com/cultureamp
+requirements:
+  - docker
+  - jq
+configuration:
+  properties:
+    image-name:
+      type: string
+    max-criticals:
+      type: string
+    max-highs:
+      type: string
+    image-label:
+      type: string
+  additionalProperties: false
