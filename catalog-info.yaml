@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Location
 metadata:
-  name: ecr-scan-results-buildkite-plugin-location
+  name: example-go-buildkite-plugin-location
   tags:
     - camp-foundations
 spec:

@@ -14,12 +14,8 @@ import (
 type Agent struct {
 }
 
-func (a Agent) Annotate(ctx context.Context, message string, style string, annotationContext string) error {
+func (a *Agent) Annotate(ctx context.Context, message string, style string, annotationContext string) error {
 	return execCmd(ctx, "buildkite-agent", &message, "annotate", "--style", style, "--context", annotationContext)
-}
-
-func (a Agent) ArtifactUpload(ctx context.Context, path string) error {
-	return execCmd(ctx, "buildkite-agent", nil, "artifact", "upload", path)
 }
 
 func execCmd(ctx context.Context, executableName string, stdin *string, args ...string) error {

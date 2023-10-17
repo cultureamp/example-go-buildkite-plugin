@@ -65,15 +65,15 @@ downloader() {
 
 get_version() {
   local _plugin=${BUILDKITE_PLUGINS:-""}
-  local _version;_version=$(echo "$_plugin" | sed -e 's/.*ecr-scan-results-buildkite-plugin//' -e 's/\".*//')
+  local _version;_version=$(echo "$_plugin" | sed -e 's/.*example-go-buildkite-plugin//' -e 's/\".*//')
   RETVAL="$_version"
 }
 
 download_binary_and_run() {
   get_architecture || return 1
   local _arch="$RETVAL"
-  local _executable="ecr-scan-results-buildkite-plugin"
-  local _repo="https://github.com/cultureamp/ecr-scan-results-buildkite-plugin"
+  local _executable="example-go-buildkite-plugin"
+  local _repo="https://github.com/cultureamp/example-go-buildkite-plugin"
 
   get_version || return 1
   local _version="$RETVAL"
@@ -84,16 +84,12 @@ download_binary_and_run() {
     _url=${_repo}/releases/download/${_version:1}/${_executable}_${_arch}
   fi
 
-#   local test_mode="${BUILDKITE_PLUGIN_ECR_SCAN_RESULTS_BUILDKITE_PLUGIN_TEST_MODE:-false}"
+  if ! downloader "$_url" "$_executable"; then
+    say "failed to download $_url"
+    exit 1
+  fi
 
-#   if [[ "$test_mode" == "false" ]]; then
-    if ! downloader "$_url" "$_executable"; then
-      say "failed to download $_url"
-      exit 1
-    fi
-
-    chmod +x ${_executable}
-#   fi
+  chmod +x ${_executable}
 
   ./${_executable}
 }

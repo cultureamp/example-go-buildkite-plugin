@@ -18,7 +18,7 @@ setup() {
 
 teardown() {
     unset BUILDKITE_PLUGIN_ECR_SCAN_RESULTS_BUILDKITE_PLUGIN_TEST_MODE
-    rm ./ecr-scan-results-buildkite-plugin || true
+    rm ./example-go-buildkite-plugin || true
 }
 
 create_script() {
@@ -43,6 +43,6 @@ EOM
   unset downloader
 
   assert_success
-  assert_line --regexp "https://github.com/cultureamp/ecr-scan-results-buildkite-plugin/releases/latest/download/ecr-scan-results-buildkite-plugin_linux_amd64 ecr-scan-results-buildkite-plugin"
-  assert_line --regexp "executing ecr-scan-results-buildkite-plugin"
+  assert_line --regexp "https://github.com/cultureamp/example-go-buildkite-plugin/releases/latest/download/example-go-buildkite-plugin_linux_amd64 example-go-buildkite-plugin"
+  assert_line --regexp "executing example-go-buildkite-plugin"
 }

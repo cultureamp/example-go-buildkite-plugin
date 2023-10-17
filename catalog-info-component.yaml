@@ -1,17 +1,17 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: ecr-scan-results-buildkite-plugin
+  name: example-go-buildkite-plugin
   description: |
-    Buildkite plugin to retrieve ECR scan results
+    Example Buildkite plugin to demonstate Github release delivery
   tags:
     - camp-sre
     - data-internal-use-only
     - users-internal
   annotations:
-    github.com/project-slug: cultureamp/ecr-scan-results-buildkite-plugin
-    github.com/team-slug: cultureamp/sre-foundations
+    github.com/project-slug: cultureamp/example-go-buildkite-plugin
+    github.com/team-slug: cultureamp/sre-enablement
 spec:
   type: library
-  owner: sre-foundations
+  owner: sre-enablement
   lifecycle: production

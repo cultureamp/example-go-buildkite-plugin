@@ -1,20 +1,11 @@
-name: ECR Scan Results
+name: Example Go
 description: >
-  Retrieves vulnerability scan results from ECR, creating a report as an
-  annotation on the build. Will fail the step if vulnerabilities exist (though
-  this is configurable).
+  Demonstrates an on-demand Github release download
+  and run pattern for delivery Go-based Buildkite
+  plugins.
 author: https://github.com/cultureamp
-requirements:
-  - docker
-  - jq
+requirements: []
 configuration:
   properties:
-    image-name:
+    message:
       type: string
-    max-criticals:
-      type: string
-    max-highs:
-      type: string
-    image-label:
-      type: string
-  additionalProperties: false

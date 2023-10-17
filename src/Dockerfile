@@ -18,13 +18,13 @@ COPY . ./
 # build as a static binary without debug symbols
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build \
       -ldflags='-w -s -extldflags "-static"' -a \
-      -o /dist/ecrscanresults .
+      -o /dist/examplego .
 
 # runtime image using static distroless base
 # using static nonroot image
 # user:group is nobody:nobody, uid:gid = 65534:65534
 FROM ${DISTROLESS_IMAGE}
 
-COPY --from=builder /dist/ecrscanresults /ecrscanresults
+COPY --from=builder /dist/examplego /examplego
 
-ENTRYPOINT ["/ecrscanresults"]
+ENTRYPOINT ["/examplego"]
