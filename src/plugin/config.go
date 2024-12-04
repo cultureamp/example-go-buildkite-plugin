@@ -5,7 +5,7 @@ import (
 )
 
 type Config struct {
-	Message string `envconfig:"MESSAGE" required:"true"`
+	Message string `required:"true"`
 }
 
 type EnvironmentConfigFetcher struct {
