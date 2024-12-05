@@ -13,11 +13,11 @@ load '../lib/download.bash'
 #export DOCKER_STUB_DEBUG=/dev/tty
 
 setup() {
-  export BUILDKITE_PLUGIN_ECR_SCAN_RESULTS_BUILDKITE_PLUGIN_TEST_MODE=true
+  export BUILDKITE_PLUGIN_EXAMPLE_GO_BUILDKITE_PLUGIN_TEST_MODE=true
 }
 
 teardown() {
-    unset BUILDKITE_PLUGIN_ECR_SCAN_RESULTS_BUILDKITE_PLUGIN_TEST_MODE
+    unset BUILDKITE_PLUGIN_EXAMPLE_GO_BUILDKITE_PLUGIN_TEST_MODE
     rm ./example-go-buildkite-plugin || true
 }
 

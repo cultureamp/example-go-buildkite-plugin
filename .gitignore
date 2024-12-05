@@ -3,3 +3,6 @@
 *.swp
 src/ecrscanresults
 src/*.html
+
+# GoReleaser artifacts
+src/dist

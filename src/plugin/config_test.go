@@ -18,7 +18,8 @@ func TestFailOnMissingEnvironment(t *testing.T) {
 
 	err := fetcher.Fetch(&config)
 
-	assert.Error(t, err, "fetch should error")
+	expectedErr := "required key BUILDKITE_PLUGIN_EXAMPLE_GO_MESSAGE missing value"
+	assert.EqualError(t, err, expectedErr, "fetch should error on missing environment variable")
 }
 
 func TestFetchConfigFromEnvironment(t *testing.T) {
