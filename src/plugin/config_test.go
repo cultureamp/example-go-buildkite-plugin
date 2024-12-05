@@ -6,6 +6,7 @@ import (
 
 	"github.com/cultureamp/examplego/plugin"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestFailOnMissingEnvironment(t *testing.T) {
@@ -29,6 +30,6 @@ func TestFetchConfigFromEnvironment(t *testing.T) {
 
 	err := fetcher.Fetch(&config)
 
-	assert.Nil(t, err, "fetch should not error")
-	assert.Equal(t, config.Message, "test-message", "fetched message should match environment")
+	require.NoError(t, err, "fetch should not error")
+	assert.Equal(t, "test-message", config.Message, "fetched message should match environment")
 }
