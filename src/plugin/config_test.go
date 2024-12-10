@@ -10,10 +10,10 @@ import (
 )
 
 func TestFailOnMissingEnvironment(t *testing.T) {
-	unsetEnvironmentVariables()
-
 	var config plugin.Config
 	fetcher := plugin.EnvironmentConfigFetcher{}
+
+	unsetEnv(t, "BUILDKITE_PLUGIN_EXAMPLE_GO_MESSAGE")
 
 	err := fetcher.Fetch(&config)
 
@@ -22,9 +22,6 @@ func TestFailOnMissingEnvironment(t *testing.T) {
 }
 
 func TestFetchConfigFromEnvironment(t *testing.T) {
-	unsetEnvironmentVariables()
-	defer unsetEnvironmentVariables()
-
 	var config plugin.Config
 	fetcher := plugin.EnvironmentConfigFetcher{}
 
@@ -36,8 +33,19 @@ func TestFetchConfigFromEnvironment(t *testing.T) {
 	assert.Equal(t, "test-message", config.Message, "fetched message should match environment")
 }
 
-// Unsets environment variables through an all-in-one function. Extend this with additional environment variables as
-// needed.
-func unsetEnvironmentVariables() {
-	os.Unsetenv("BUILDKITE_PLUGIN_EXAMPLE_GO_MESSAGE")
+func unsetEnv(t *testing.T, key string) {
+	t.Helper()
+
+	// ensure state is restored correctly
+	currValue, exists := os.LookupEnv(key)
+	t.Cleanup(func() {
+		if exists {
+			os.Setenv(key, currValue)
+		} else {
+			os.Unsetenv(key)
+		}
+	})
+
+	// clear the value
+	os.Unsetenv(key)
 }
