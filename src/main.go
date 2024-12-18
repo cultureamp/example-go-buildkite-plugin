@@ -4,8 +4,8 @@ import (
 	"context"
 	"os"
 
-	"github.com/cultureamp/examplego/buildkite"
-	"github.com/cultureamp/examplego/plugin"
+	"github.com/cultureamp/example-go-buildkite-plugin/buildkite"
+	"github.com/cultureamp/example-go-buildkite-plugin/plugin"
 )
 
 func main() {
