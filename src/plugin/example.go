@@ -2,8 +2,9 @@ package plugin
 
 import (
 	"context"
+	"fmt"
 
-	"github.com/cultureamp/examplego/buildkite"
+	"github.com/cultureamp/example-go-buildkite-plugin/buildkite"
 )
 
 type ExamplePlugin struct {
@@ -21,8 +22,7 @@ func (ep ExamplePlugin) Run(ctx context.Context, fetcher ConfigFetcher, agent Ag
 	var config Config
 	err := fetcher.Fetch(&config)
 	if err != nil {
-		buildkite.LogFailuref("plugin configuration error: %s\n", err.Error())
-		return err
+		return fmt.Errorf("plugin configuration error: %w", err)
 	}
 	annotation := config.Message
 
@@ -30,8 +30,7 @@ func (ep ExamplePlugin) Run(ctx context.Context, fetcher ConfigFetcher, agent Ag
 
 	err = agent.Annotate(ctx, annotation, "info", "message")
 	if err != nil {
-		buildkite.LogFailuref("buildkite annotation error: %s\n", err.Error())
-		return err
+		return fmt.Errorf("buildkite annotation error: %w", err)
 	}
 
 	buildkite.Log("done.")
