@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/cultureamp/examplego/plugin"
+	"github.com/cultureamp/example-go-buildkite-plugin/plugin"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
