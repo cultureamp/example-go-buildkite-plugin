@@ -1,6 +1,6 @@
 module github.com/cultureamp/example-go-buildkite-plugin
 
-go 1.24.3
+go 1.24.5
 
 require (
 	github.com/kelseyhightower/envconfig v1.4.0
@@ -16,6 +16,6 @@ require (
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
-	golang.org/x/sys v0.33.0
+	golang.org/x/sys v0.34.0
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
