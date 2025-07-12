@@ -1,6 +1,6 @@
 module github.com/cultureamp/example-go-buildkite-plugin
 
-go 1.24.3
+go 1.24.5
 
 require (
 	github.com/kelseyhightower/envconfig v1.4.0
