@@ -1,8 +1,5 @@
 # VIM swap files
 *.swp
-
-# devbox
-.devbox/
 src/ecrscanresults
 src/*.html
 
