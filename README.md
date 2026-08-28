@@ -25,6 +25,22 @@ steps:
 
 The message to annotate onto the build.
 
+## Local development
+
+Ensure devbox is setup as per [Local Dev Environments (LDEs) - Getting Started](https://cultureamp.atlassian.net/wiki/spaces/DE/pages/3342434338/Devbox+setup).
+
+Install dependencies:
+
+    devbox run setup
+
+Fast feedback (lint + tests):
+
+    devbox run check
+
+Full sweep (module tidiness check, lint, and race/coverage tests):
+
+    devbox run verify
+
 ## Releasing
 
 Push a version tag to trigger new release via [Github Actions workflow](./.github/workflows/release.yaml).
