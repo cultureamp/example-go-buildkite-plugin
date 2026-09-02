@@ -33,14 +33,6 @@ Install dependencies:
 
     devbox run setup
 
-Fast feedback (lint + tests):
-
-    devbox run check
-
-Full sweep (module tidiness check, lint, and race/coverage tests):
-
-    devbox run verify
-
 ## Releasing
 
 Push a version tag to trigger new release via [Github Actions workflow](./.github/workflows/release.yaml).

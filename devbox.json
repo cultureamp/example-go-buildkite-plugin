@@ -8,15 +8,6 @@
     "scripts": {
       "setup": [
         "(cd src && go mod download)"
-      ],
-      "check": [
-        "(cd src && golangci-lint run --timeout=2m)",
-        "(cd src && go test ./...)"
-      ],
-      "verify": [
-        "(cd src && make ensure-deps)",
-        "(cd src && golangci-lint run --timeout=2m)",
-        "(cd src && go test -race -cover ./...)"
       ]
     }
   }
