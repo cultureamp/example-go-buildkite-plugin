@@ -8,7 +8,11 @@ This is a Go-based Buildkite plugin that demonstrates on-demand downloading and 
 
 ## Development Commands
 
-All Go development commands should be run from the `src/` directory:
+This repo uses [devbox](https://www.jetify.com/devbox) for a pinned local toolchain (Go and golangci-lint). Prefer devbox for local development so you use the pinned versions:
+
+- **Set up the environment**: `devbox run setup` (installs Go module dependencies)
+
+Run devbox commands from the repository root. The underlying Go development commands should be run from the `src/` directory:
 
 - **Build and test**: `make test` (downloads dependencies, runs tests with race detection and coverage)
 - **Run tests for CI**: `make test-ci` (generates coverage artifacts in `artifacts/` directory)

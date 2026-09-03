@@ -1,0 +1,14 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.17.5/.schema/devbox.schema.json",
+  "packages": [
+    "go@1.20.14",
+    "golangci-lint@1.62.2"
+  ],
+  "shell": {
+    "scripts": {
+      "setup": [
+        "(cd src && go mod download)"
+      ]
+    }
+  }
+}
