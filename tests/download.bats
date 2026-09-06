@@ -1,6 +1,7 @@
 #!/usr/bin/env bats
 
-load '/usr/local/lib/bats/load.bash'
+load '/usr/local/lib/bats-support/load.bash'
+load '/usr/local/lib/bats-assert/load.bash'
 
 load '../lib/download.bash'
 
