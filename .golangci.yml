@@ -1,12 +1,12 @@
-issues:
-  exclude-rules:
-    - path: buildkite/agent.go
-      linters:
-        # type assertion does not need checking as this will run in linux only (via Docker)
-        - forcetypeassert
+version: "2"
+
+formatters:
+  disable:
+    - gci
+    - gofumpt
 
 linters:
-  enable-all: true
+  default: all
   disable:
     - asciicheck
     - depguard
@@ -14,20 +14,19 @@ linters:
     - err113
     - errname
     - exhaustruct
-    - exportloopref
+    - exhaustruct_v5
     - forbidigo
     - funlen
-    - gci
     - gochecknoglobals
     - gocognit
     - goconst
     - godot
     - godox
-    - gofumpt
     - lll
     - nestif
     - nilnil
     - nlreturn
+    - noinlineerr
     - paralleltest
     - prealloc
     - revive
@@ -37,18 +36,18 @@ linters:
     - varnamelen
     - wrapcheck
     - wsl
-
-linters-settings:
-  gosec:
-    # all rules enabled
-    # see also: https://securego.io/docs/rules/rule-intro.html
-    config:
-      global:
-        # allow #nosec override comments
-        nosec: enabled
-        # disable potentially noisy stricter audit mode
-        audit: disabled
-      G101: # "Look for hard-coded credentials"
-        mode: strict
-  cyclop:
-    max-complexity: 20
+    - wsl_v5
+  settings:
+    gosec:
+      # all rules enabled
+      # see also: https://securego.io/docs/rules/rule-intro.html
+      config:
+        global:
+          # allow #nosec override comments
+          nosec: enabled
+          # disable potentially noisy stricter audit mode
+          audit: disabled
+        G101: # "Look for hard-coded credentials"
+          mode: strict
+    cyclop:
+      max-complexity: 20
