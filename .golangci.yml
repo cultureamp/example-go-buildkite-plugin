@@ -1,10 +1,5 @@
 version: "2"
 
-formatters:
-  disable:
-    - gci
-    - gofumpt
-
 linters:
   default: all
   disable:
