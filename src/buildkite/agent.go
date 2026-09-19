@@ -21,7 +21,7 @@ func (a *Agent) Annotate(ctx context.Context, message string, style string, anno
 func execCmd(ctx context.Context, executableName string, stdin *string, args ...string) error {
 	Logf("Executing: %s %s\n", executableName, strings.Join(args, " "))
 
-	cmd := osexec.CommandContext(ctx, executableName, args...)
+	cmd := osexec.CommandContext(ctx, executableName, args...) //nolint:gosec // executableName is a known binary, not user input
 
 	if stdin != nil {
 		cmd.Stdin = strings.NewReader(*stdin)
@@ -49,7 +49,7 @@ func execCmd(ctx context.Context, executableName string, stdin *string, args ...
 		return fmt.Errorf("failed to wait for command termination: %w", err)
 	}
 
-	waitStatus := cmd.ProcessState.Sys().(syscall.WaitStatus)
+	waitStatus := cmd.ProcessState.Sys().(syscall.WaitStatus) //nolint:forcetypeassert // runs on linux only (via Docker)
 	exitStatus := waitStatus.ExitStatus()
 	if exitStatus != 0 {
 		return fmt.Errorf("command exited with non-zero status: %d", exitStatus)
