@@ -40,12 +40,12 @@ func unsetEnv(t *testing.T, key string) {
 	currValue, exists := os.LookupEnv(key)
 	t.Cleanup(func() {
 		if exists {
-			os.Setenv(key, currValue) //nolint:usetesting // restoring env state in cleanup, t.Setenv unavailable inside t.Cleanup
+			os.Setenv(key, currValue) //nolint:usetesting,errcheck,gosec // restoring env state in cleanup, t.Setenv unavailable inside t.Cleanup
 		} else {
-			os.Unsetenv(key)
+			os.Unsetenv(key) //nolint:errcheck // restoring env state in cleanup
 		}
 	})
 
 	// clear the value
-	os.Unsetenv(key)
+	os.Unsetenv(key) //nolint:errcheck // setup for test, error not relevant
 }
