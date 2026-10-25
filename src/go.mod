@@ -1,6 +1,6 @@
 module github.com/cultureamp/example-go-buildkite-plugin
 
-go 1.27.2
+go 1.27.3
 
 require (
 	github.com/stretchr/objx v0.5.3 // indirect
